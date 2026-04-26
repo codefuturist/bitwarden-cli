@@ -37,9 +37,25 @@ archives:
       {{- else if eq .Arch "386" }}i386
       {{- else }}{{ .Arch }}{{ end }}
       {{- if .Arm }}v{{ .Arm }}{{ end }}
+    
+    # Archive format
+    format: tar.gz
+    
+    # Files to include
     files:
       - LICENSE
       - README.md
+      - CHANGELOG.md
+    
+    # Additional metadata
+    wrap_in_directory: true
+    
+    # Archive replacements for better naming
+    replacements:
+      darwin: Darwin
+      linux: Linux
+      windows: Windows
+      amd64: x86_64
 
 # Homebrew tap configuration
 brews:
@@ -59,18 +75,58 @@ brews:
       system "#{bin}/bw --version"
     install: |
       bin.install "bw"
+    
+    caveats: |
+      Bitwarden CLI has been installed!
+      
+      To get started:
+        bw --help
+      
+      For more information:
+      https://github.com/yourusername/bitwarden-cli
 
 # Checksums
 checksum:
   name_template: 'checksums.txt'
+  
+  # Algorithm to use
+  algorithm: sha256
+  
+  # Include checksum file in release
+  include: true
 
 # Release configuration
 release:
   github:
     owner: yourusername
     name: bitwarden-cli
+  
+  # Release name template
+  name_template: "Bitwarden CLI {{.Version}}"
+  
+  # Make the release latest (not draft)
   draft: false
+  
+  # Auto-detect prereleases (e.g., v1.0.0-rc1)
   prerelease: auto
+  
+  # Release notes configuration
+  footer: |
+    ## Installation
+
+    ### Homebrew
+    ```bash
+    brew tap yourusername/homebrew-tap
+    brew install bitwarden-cli
+    ```
+
+    ### Manual Download
+    Download the appropriate binary for your platform from the assets below.
+  
+  # Include commit information in release
+  include:
+    - "CHANGELOG.md"
+    - "LICENSE"
 
 # Changelog configuration
 changelog:
@@ -79,3 +135,15 @@ changelog:
     exclude:
       - '^docs:'
       - '^test:'
+      - '^chore:'
+  
+  # Group changes by type
+  groups:
+    - title: "New Features"
+      regexp: "^feat.*"
+    - title: "Bug Fixes"
+      regexp: "^fix.*"
+    - title: "Performance Improvements"
+      regexp: "^perf.*"
+    - title: "Breaking Changes"
+      regexp: "^BREAKING CHANGE.*"
