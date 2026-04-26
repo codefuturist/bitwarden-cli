@@ -8,7 +8,7 @@ import (
 )
 
 var (
-	version = "1.29.0" // Official Bitwarden CLI version
+	version = "2.29.0" // Official Bitwarden CLI version (as of latest release)
 	commit  = "unknown"
 	date    = "unknown"
 )
