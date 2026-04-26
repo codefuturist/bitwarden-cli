@@ -1,0 +1,81 @@
+# .goreleaser.yml
+version: 2
+
+# Build customization
+builds:
+  - 
+    id: "bitwarden-cli"
+    binary: bw
+    main: ./main.go
+    goos:
+      - linux
+      - windows
+      - darwin
+    goarch:
+      - amd64
+      - arm64
+      - "386"
+      - arm
+    goarm:
+      - "6"
+      - "7"
+    env:
+      - CGO_ENABLED=0
+    flags:
+      - -trimpath
+    ldflags:
+      - -s -w -X main.version={{.Version}} -X main.commit={{.Commit}} -X main.date={{.Date}}
+
+# Archive customization
+archives:
+  - 
+    name_template: >-
+      {{ .ProjectName }}_
+      {{- .Version }}_
+      {{- .Os }}_
+      {{- if eq .Arch "amd64" }}x86_64
+      {{- else if eq .Arch "386" }}i386
+      {{- else }}{{ .Arch }}{{ end }}
+      {{- if .Arm }}v{{ .Arm }}{{ end }}
+    files:
+      - LICENSE
+      - README.md
+
+# Homebrew tap configuration
+brews:
+  - 
+    name: bitwarden-cli
+    repository:
+      owner: yourusername
+      name: homebrew-tap
+      token: "{{ .Env.HOMEBREW_TAP_GITHUB_TOKEN }}"
+    directory: Formula
+    homepage: "https://github.com/yourusername/bitwarden-cli"
+    description: "Bitwarden CLI - Official command-line tool for Bitwarden password manager"
+    license: "MIT"
+    dependencies:
+      - git
+    test: |
+      system "#{bin}/bw --version"
+    install: |
+      bin.install "bw"
+
+# Checksums
+checksum:
+  name_template: 'checksums.txt'
+
+# Release configuration
+release:
+  github:
+    owner: yourusername
+    name: bitwarden-cli
+  draft: false
+  prerelease: auto
+
+# Changelog configuration
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - '^docs:'
+      - '^test:'

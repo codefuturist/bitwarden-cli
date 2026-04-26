@@ -1,0 +1,24 @@
+# Binaries
+bw
+dist/
+
+# Go modules
+go.sum
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+
+# macOS files
+.DS_Store
+
+# Dependency directories
+vendor/
+
+# GoReleaser files
+.release*
+
+# Environment files
+.env
+.env.local
