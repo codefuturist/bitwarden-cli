@@ -27,6 +27,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - (Previous version - not yet released in this repo)
 
-[Unreleased]: https://github.com/yourusername/bitwarden-cli/compare/v2.29.0...HEAD
-[2.29.0]: https://github.com/yourusername/bitwarden-cli/releases/tag/v2.29.0
-[2.28.0]: https://github.com/yourusername/bitwarden-cli/releases/tag/v2.28.0
+[Unreleased]: https://github.com/codefuturist/bitwarden-cli/compare/v2.29.0...HEAD
+[2.29.0]: https://github.com/codefuturist/bitwarden-cli/releases/tag/v2.29.0
+[2.28.0]: https://github.com/codefuturist/bitwarden-cli/releases/tag/v2.28.0

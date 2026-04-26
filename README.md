@@ -7,13 +7,13 @@ Official Bitwarden CLI tool built with Go and distributed via Homebrew. This is 
 ### Homebrew (macOS/Linux)
 
 ```bash
-brew tap yourusername/homebrew-tap
+brew tap codefuturist/homebrew-tap
 brew install bitwarden-cli
 ```
 
 ### Manual Installation
 
-Download the appropriate binary for your platform from the [releases page](https://github.com/yourusername/bitwarden-cli/releases) and add it to your PATH.
+Download the appropriate binary for your platform from the [releases page](https://github.com/codefuturist/bitwarden-cli/releases) and add it to your PATH.
 
 ### Version
 
@@ -28,7 +28,7 @@ bw --help
 ## Building from Source
 
 ```bash
-git clone https://github.com/yourusername/bitwarden-cli.git
+git clone https://github.com/codefuturist/bitwarden-cli.git
 cd bitwarden-cli
 go build -o bw main.go
 ```

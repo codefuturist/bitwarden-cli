@@ -51,11 +51,11 @@ brews:
   - 
     name: bitwarden-cli
     repository:
-      owner: yourusername
+      owner: codefuturist
       name: homebrew-tap
       token: "{{ .Env.HOMEBREW_TAP_GITHUB_TOKEN }}"
     directory: Formula
-    homepage: "https://github.com/yourusername/bitwarden-cli"
+    homepage: "https://github.com/codefuturist/bitwarden-cli"
     description: "Bitwarden CLI - Official command-line tool for Bitwarden password manager"
     license: "MIT"
     dependencies:
@@ -72,7 +72,7 @@ brews:
         bw --help
       
       For more information:
-      https://github.com/yourusername/bitwarden-cli
+      https://github.com/codefuturist/bitwarden-cli
 
 # Checksums
 checksum:
@@ -81,7 +81,7 @@ checksum:
 # Release configuration
 release:
   github:
-    owner: yourusername
+    owner: codefuturist
     name: bitwarden-cli
   
   # Release name template
@@ -99,7 +99,7 @@ release:
 
     ### Homebrew
     ```bash
-    brew tap yourusername/homebrew-tap
+    brew tap codefuturist/homebrew-tap
     brew install bitwarden-cli
     ```
 

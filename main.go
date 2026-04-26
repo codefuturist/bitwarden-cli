@@ -8,7 +8,7 @@ import (
 )
 
 var (
-	version = "2.29.0" // Official Bitwarden CLI version (as of latest release)
+	version = "dev" // Will be replaced by GoReleaser with actual version
 	commit  = "unknown"
 	date    = "unknown"
 )
