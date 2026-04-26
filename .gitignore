@@ -3,7 +3,7 @@ bw
 dist/
 
 # Go modules
-go.sum
+# go.sum is needed for builds, so we don't ignore it
 
 # IDE files
 .idea/
